@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SuperCalc</title>
+	<link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="icon.png">
+</head>
+<body>
+
+<div class="flex-container">
+    <!--<textarea id="output" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>-->
+    <!--<textarea id="input" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus="autofocus"></textarea>-->
+    <div id="output"></div>
+    <div id="input">###
+    NEWTON ALGORITHM
+###
+
+# function
+f = (x) ->
+    x**2 -1
+
+# derivative of f
+f2 = deriv f
+
+# start on x
+d = [2]
+
+echo d[0]
+for i in [0..100]
+    # calculate
+    d[i+1] = d[i] - f(d[i]) / f2(d[i])
+    # output
+    echo d[i+1]
+    
+    # break if last two iterations are identical
+    if d[i+1] is d[i]
+        break
+
+# show the help
+help()
+
+# press Ctrl+Return to execute while this area is focused
+</div>
+</div>
+
+
+<script src="js/libs/jquery.js"></script>
+<script src="js/libs/math.min.js"></script>
+<script src="js/libs/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/libs/coffee-script.js"></script>
+<script data-src="coffee/calc.coffee" type="text/coffeescript"></script>
+</body>
+</html>
